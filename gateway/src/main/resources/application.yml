@@ -15,7 +15,7 @@ endpoints:
     enabled: true
 
 zuul:
-  ignoredServices: "*"
+#  ignoredServices: "*"
   routes:
     home-service:
       path: /service/**
@@ -28,12 +28,13 @@ home-service:
     listOfServers: localhost:8080,localhost:8081
     eureka.enabled: false
     ServerListRefreshInterval: 100
-    retryableStatusCodes: 404,502,500
-    MaxAutoRetries: 4
-    MaxAutoRetriesNextServer: 2
+    retryableStatusCodes: 500
+    MaxAutoRetries: 2
+    MaxAutoRetriesNextServer: 1
     OkToRetryOnAllOperations: true
     ReadTimeout: 10000
     ConnectTimeout: 10000
+    EnablePrimeConnections: true
 
 ribbon:
   eureka:
