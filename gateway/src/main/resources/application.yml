@@ -1,0 +1,40 @@
+server:
+  port: ${PORT:7070}
+
+spring:
+  application:
+    name: gateway
+
+endpoints:
+  health:
+    enabled: true
+    sensitive: true
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+
+zuul:
+  ignoredServices: "*"
+  routes:
+    home-service:
+      path: /service/**
+      serviceId: home-service
+      retryable: true
+  retryable: true
+
+home-service:
+  ribbon:
+    listOfServers: localhost:8080,localhost:8081
+    eureka.enabled: false
+    ServerListRefreshInterval: 100
+    retryableStatusCodes: 404,502,500
+    MaxAutoRetries: 4
+    MaxAutoRetriesNextServer: 2
+    OkToRetryOnAllOperations: true
+    ReadTimeout: 10000
+    ConnectTimeout: 10000
+
+ribbon:
+  eureka:
+    enabled: false

@@ -1,0 +1,19 @@
+server:
+  port: ${PORT:8090}
+
+spring:
+  application:
+    name: client
+
+endpoints:
+  health:
+    enabled: true
+    sensitive: false
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+
+management:
+  security:
+    enabled: false
