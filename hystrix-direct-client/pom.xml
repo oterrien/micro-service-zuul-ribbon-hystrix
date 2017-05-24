@@ -5,7 +5,7 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>direct-client</artifactId>
+    <artifactId>hystrix-direct-client</artifactId>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
