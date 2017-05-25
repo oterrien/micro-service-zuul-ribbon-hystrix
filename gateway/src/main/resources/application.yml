@@ -15,7 +15,7 @@ endpoints:
     enabled: true
 
 zuul:
-#  ignoredServices: "*"
+  ignoredServices: "*"
   routes:
     home-service:
       path: /service/**
@@ -39,3 +39,11 @@ home-service:
 ribbon:
   eureka:
     enabled: false
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 30000
