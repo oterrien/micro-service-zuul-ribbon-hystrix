@@ -17,3 +17,6 @@ endpoints:
 management:
   security:
     enabled: false
+
+home-service:
+  host: localhost:8080

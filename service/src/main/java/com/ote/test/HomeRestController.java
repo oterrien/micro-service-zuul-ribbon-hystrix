@@ -18,6 +18,12 @@ public class HomeRestController {
     @RequestMapping("/home")
     public String home() {
         log.info("home");
+
+        Child p = new Child();
+        p.setCommonProperty("Common");
+        p.setName("Child Name");
+        System.out.println(p.toString());
+
         return "Hello from " + name + " #" + instanceId;
     }
 }
